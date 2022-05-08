@@ -43,11 +43,11 @@ async def private_receive_handler(c: Client, m: Message):
         except UserNotParticipant:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="""<i>Jᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜꜱᴇ ᴍᴇ 🔐</i>""",
+                text="""<b>JOIN MY CHANNEL TO USE ME 🔐</b>""",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("Jᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                            InlineKeyboardButton("JOIN NOW 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                         ]
                     ]
                 ),
@@ -57,7 +57,7 @@ async def private_receive_handler(c: Client, m: Message):
         except Exception:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ ʙᴏss** @adarsh_goel",
+                text=" **Something went wrong ⚠️ Please contact** [JiC54 Support](https://t.me/JiC54SupportBot)",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
@@ -89,18 +89,13 @@ async def private_receive_handler(c: Client, m: Message):
             file_name = f"{m.audio.file_name}"
 
         msg_text ="""
-<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>
+<b><u>Your Link has been generated successfully!</u></b>
+<b>📂File Name:</b> <code>{}</code>
+<b>💾File Size:</b> {}
+<b>🔗Download Link:</b> <i>{}</i>
+<b>🖇️Watch Link:</b> <i>{}</i>
 
-<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>
-
-<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>
-
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>
-
-<b> 🖥 WATCH    :</b> <i>{}</i>
-
-<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE  </b>
-
+<b>🚸Links generated are permanent, only if your files aren't against our /rules</b>
 """
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
@@ -110,7 +105,7 @@ async def private_receive_handler(c: Client, m: Message):
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🖥STREAM", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)]]) #Download Link
+                                                InlineKeyboardButton('📥DOWNLOAD', url=online_link)]]) #Download Link
         )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
@@ -138,7 +133,7 @@ async def channel_receive_handler(bot, broadcast):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("🖥STREAM ", url=stream_link),
-                     InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)] 
+                     InlineKeyboardButton('DOWNLOAD📥', url=online_link)] 
                 ]
             )
         )
